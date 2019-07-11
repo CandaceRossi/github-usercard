@@ -2,13 +2,14 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
-axios.get('https://api.github.com/users/candacerossi')
-    .then(data => {
+axios.get('https://api.github.com/users/CandaceRossi')
+    .then((data) => {
         //here is where we get results from server
+
         console.log('response', data)
     })
-    .catch(function(error) {
-        console.log('ERROR', error);
+    .catch((error) => {
+        console.log('ERROR');
     })
     /* Step 2: Inspect and study the data coming back, this is YOUR 
        github info! You will need to understand the structure of this 
@@ -22,6 +23,11 @@ axios.get('https://api.github.com/users/candacerossi')
            create a new component and add it to the DOM as a child of .cards
 */
 
+const cards = querySelector('.cards')
+    // const candace = createGithubCard('https://api.github.com/users/candacerossi', 'Candace Rossi')
+    // cards.appendChild('candace')
+
+
 /* Step 5: Now that you have your own card getting added to the DOM, either 
           follow this link in your browser https://api.github.com/users/<Your github name>/followers 
           , manually find some other users' github handles, or use the list found 
@@ -33,56 +39,75 @@ axios.get('https://api.github.com/users/candacerossi')
 */
 
 const followersArray = [];
+followersArray.forEach(data => {
 
-/* Step 3: Create a function that accepts a single object as its only argument,
-          Using DOM methods and properties, create a component that will return the following DOM element:
+    })
+    /* Step 3: Create a function that accepts a single object as its only argument,
+              Using DOM methods and properties, create a component that will return the following DOM element:
 
-<div class="card">
-  <img src={image url of user} />
-  <div class="card-info">
-    <h3 class="name">{users name}</h3>
-    <p class="username">{users user name}</p>
-    <p>Location: {users location}</p>
-    <p>Profile:  
-      <a href={address to users github page}>{address to users github page}</a>
-    </p>
-    <p>Followers: {users followers count}</p>
-    <p>Following: {users following count}</p>
-    <p>Bio: {users bio}</p>
-  </div>
-</div>
+    <div class="card">
+      <img src={image url of user} />
+      <div class="card-info">
+        <h3 class="name">{users name}</h3>
+        <p class="username">{users user name}</p>
+        <p>Location: {users location}</p>
+        <p>Profile:  
+          <a href={address to users github page}>{address to users github page}</a>
+        </p>
+        <p>Followers: {users followers count}</p>
+        <p>Following: {users following count}</p>
+        <p>Bio: {users bio}</p>
+      </div>
+    </div>
 
-*/
-const cards = querySelector('.cards')
-const candace = createGithubCard('https://api.github.com/users/candacerossi', 'Candace Rossi')
-cards.appendChild('candace')
+    */
 
-function createGithubCard(imageUrl, username) {
+function createGithubCard(userObject) {
     //create elements
-
-    const card = document.createElement('div')
-    const img = document.createElement('img')
-    const title = document.createElement('h3')
-    const para = document.createElement('p')
+    const userCard = document.createElement('div')
+    const userImg = document.createElement('img')
+    const cardInfo = document.createElement('div')
+    const govName = document.createElement('h3')
     const username = document.createElement('p')
+    const userLocation = document.createElement('p')
+    const userProfile = document.createElement('p')
+    const userGitPage = document.createElement('a')
+    const userFollowers = document.createElement('p')
+    const userFollowing = document.createElement('p')
+
 
     //set styles
-
-    card.classList.add('card')
-    img.classList.add('img')
-    title.classList.add('name')
-    para.classList.add('p')
-    username.classList.add('username')
+    userCard.classList.add(userCard)
+    cardInfo.classList.add(userImg)
+    cardInfo.classList.add(govName)
+    cardInfo.classList.add(userName)
+    cardInfo.classList.add(userLocation)
+    cardInfo.classList.add(userProfile)
+    cardInfo.classList.add(userGitPage)
+    cardInfo.classList.add(userFollowers)
+    cardInfo.classList.add(userFollowing)
 
     //set the content
-    img.src = imageUrl
-    title.textContent = title
+    userImg.src = `${}`
+    govName.textContent = `${userObject.}`
+    userName.textContent = `${userObject.}`
+    userLocation.textContent = `${userObject.location}`
+    userProfile.textContent = `${userObject.}`
+    userGitPage.textContent = `${userObject.}`
+    userFollowers.textContent = `${userObject.}`
+    userFollowing.textContent = `${userObject.}`
 
     //put together
-    card.appendChild(img)
-    card.appendChild(name)
-    card.appendChild(para)
-    card.appendChild(username)
+    userCard.appendChild(userImg)
+    userCard.appendChild(govName)
+    userCard.appendChild(userName)
+    userCard.appendChild(userLocation)
+    userCard.appendChild(userProfile)
+    userCard.appendChild(userGitPage)
+    userCard.appendChild(userFollowers)
+    userCard.appendChild(userFollowing)
+
+
 
     return card
 }

@@ -2,13 +2,21 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
+axios.get('https://api.github.com/users/candacerossi')
+    .then(data => {
+        //here is where we get results from server
+        console.log('response', data)
+    })
+    .catch(function(error) {
+        console.log('ERROR', error);
+    })
+    /* Step 2: Inspect and study the data coming back, this is YOUR 
+       github info! You will need to understand the structure of this 
+       data in order to use it to build your component function 
 
-/* Step 2: Inspect and study the data coming back, this is YOUR 
-   github info! You will need to understand the structure of this 
-   data in order to use it to build your component function 
-
-   Skip to Step 3.
-*/
+      
+       Skip to Step 3.
+    */
 
 /* Step 4: Pass the data received from Github into your function, 
            create a new component and add it to the DOM as a child of .cards
@@ -45,6 +53,41 @@ const followersArray = [];
 </div>
 
 */
+const cards = querySelector('.cards')
+const candace = createGithubCard('https://api.github.com/users/candacerossi', 'Candace Rossi')
+cards.appendChild('candace')
+
+function createGithubCard(imageUrl, username) {
+    //create elements
+
+    const card = document.createElement('div')
+    const img = document.createElement('img')
+    const title = document.createElement('h3')
+    const para = document.createElement('p')
+    const username = document.createElement('p')
+
+    //set styles
+
+    card.classList.add('card')
+    img.classList.add('img')
+    title.classList.add('name')
+    para.classList.add('p')
+    username.classList.add('username')
+
+    //set the content
+    img.src = imageUrl
+    title.textContent = title
+
+    //put together
+    card.appendChild(img)
+    card.appendChild(name)
+    card.appendChild(para)
+    card.appendChild(username)
+
+    return card
+}
+
+
 
 /* List of LS Instructors Github username's: 
   tetondan

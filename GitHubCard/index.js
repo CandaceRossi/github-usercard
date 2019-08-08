@@ -2,23 +2,24 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
-const cards = document.querySelector('.cards')
-console.log("woopee", cards)
+// const cards = document.querySelector(".cards");
+// console.log("woopee", cards);
 
-axios.get('https://api.github.com/users/CandaceRossi')
-    .then((data) => {
-        //here is where we get results from server
-        console.log('response', data)
-        let card = data.data
-        console.log("woohoo", card)
-        const element = createGithubCard(card)
-        console.log('yeehaw', element)
-        cards.appendChild(element)
-    })
-    .catch((error) => {
-        console.log('ERROR', error);
-    })
-    /* Step 2: Inspect and study the data coming back, this is YOUR 
+// axios
+//   .get("https://api.github.com/users/CandaceRossi")
+//   .then(data => {
+//     //here is where we get results from server
+//     console.log("response", data);
+//     let card = data.data;
+//     console.log("woohoo", card);
+//     const element = createGithubCard(card);
+//     console.log("yeehaw", element);
+//     cards.appendChild(element);
+//   })
+//   .catch(error => {
+//     console.log("ERROR", error);
+//   });
+/* Step 2: Inspect and study the data coming back, this is YOUR 
        github info! You will need to understand the structure of this 
        data in order to use it to build your component function 
 
@@ -29,8 +30,6 @@ axios.get('https://api.github.com/users/CandaceRossi')
 /* Step 4: Pass the data received from Github into your function, 
            create a new component and add it to the DOM as a child of .cards
 */
-
-
 
 /* Step 5: Now that you have your own card getting added to the DOM, either 
           follow this link in your browser https://api.github.com/users/<Your github name>/followers 
@@ -83,11 +82,11 @@ axios.get('https://api.github.com/users/CandaceRossi')
 </div>
 
 */
+//start here
+//function createGithubCard(userObject) {
 
-function createGithubCard(userObject) {
-
-    //create elements
-    const userCard = document.createElement('div')
+//create elements
+/* const userCard = document.createElement('div')
     const userImg = document.createElement('img')
     const cardInfo = document.createElement('div')
     const govName = document.createElement('h3')
@@ -97,7 +96,7 @@ function createGithubCard(userObject) {
     const userGitPage = document.createElement('a')
     const userFollowers = document.createElement('p')
     const userFollowing = document.createElement('p')
-    const userBio = document.createElement('p')
+    const userBio = document.createElement('p')/*
 
     //set styles
     userCard.classList.add('card')

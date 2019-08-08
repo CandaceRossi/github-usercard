@@ -45,11 +45,26 @@ axios.get('https://api.github.com/users/CandaceRossi');
 function gitUserCard(userObject){
 
   //create elements
+
+  const gitCard = document.createElement('div');
+  const gitImg = document.createElement('img');
+  const gitInfo = document.createElement('div');
+  const gitName = document.createElement('h3');
+  const gitUrl = document.createElement('p');
+  const gitPublicRepos = document.createElement('p');
+  const gitFollowersUrl= document.createElement('p');
+  const gitFollowingUrl= document.createElement('p');
+  const htmlUrl = document.createElement('p');
+  const gitCreatedAt = document.createElement('p');
+  const gitUpdatedAt = document.createElement('p');
+
   //set styles
+
+  
   //set the content
   //put together
   //return card
-  
+
 
 
 }

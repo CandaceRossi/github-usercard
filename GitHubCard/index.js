@@ -2,23 +2,23 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
-const cards = document.querySelector(".cards");
-console.log("woopee", cards);
+// const cards = document.querySelector(".cards");
+// console.log("woopee", cards);
 
-axios
-  .get("https://api.github.com/users/CandaceRossi")
-  .then(data => {
-    //here is where we get results from server
-    console.log("response", data);
-    let card = data.data;
-    console.log("woohoo", card);
-    const element = createGithubCard(card);
-    console.log("yeehaw", element);
-    cards.appendChild(element);
-  })
-  .catch(error => {
-    console.log("ERROR", error);
-  });
+// axios
+//   .get("https://api.github.com/users/CandaceRossi")
+//   .then(data => {
+//     //here is where we get results from server
+//     console.log("response", data);
+//     let card = data.data;
+//     console.log("woohoo", card);
+//     const element = createGithubCard(card);
+//     console.log("yeehaw", element);
+//     cards.appendChild(element);
+//   })
+//   .catch(error => {
+//     console.log("ERROR", error);
+//   });
 /* Step 2: Inspect and study the data coming back, this is YOUR 
        github info! You will need to understand the structure of this 
        data in order to use it to build your component function 

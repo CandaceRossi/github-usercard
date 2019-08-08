@@ -12,10 +12,15 @@ axios
     const linkThem = gitUserCard(card);
     console.log("working", linkThem);
     cards.appendChild(linkThem);
+    // friendsArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell']
+    // friendsArray.forEach((item => {
+
+    // }))
   })
   .catch(error => {
     console.log("Error", error);
   });
+
 /* Step 2: Inspect and study the data coming back, this is YOUR 
        github info! You will need to understand the structure of this 
        data in order to use it to build your component function 
@@ -52,7 +57,7 @@ function gitUserCard(user) {
   const gitCard = document.createElement("div");
   const gitImg = document.createElement("img");
   const gitInfo = document.createElement("div");
-  const gitName = document.createElement("h3");
+  const gitName = document.createElement("h1");
   const gitUrl = document.createElement("p");
   const gitPublicRepos = document.createElement("p");
   const gitFollowersUrl = document.createElement("p");
@@ -66,7 +71,7 @@ function gitUserCard(user) {
   gitCard.classList.add("card");
   gitImg.classList.add("img");
   gitInfo.classList.add("card-info");
-  gitName.classList.add("card-username");
+  gitName.classList.add("name");
   gitUrl.classList.add("card-p");
   gitPublicRepos.classList.add("card-p");
   gitFollowersUrl.classList.add("card-p");
@@ -80,12 +85,12 @@ function gitUserCard(user) {
   gitImg.src = `${user.avatar_url}`;
   gitName.textContent = `${user.login}`;
   gitUrl.textContent = `${user.html_url}`;
-  gitPublicRepos.textContent = `${user.public_repos}`;
-  gitFollowersUrl.textContent = `${user.followers}`;
-  gitFollowingUrl.textContent = `${user.following}`;
-  gitHtmlUrl.textContent = `${user.html_url}`;
-  gitCreatedAt.textContent = `${user.created_at}`;
-  gitUpdatedAt.textContent = `${user.updated_at}`;
+  gitPublicRepos.textContent = `Public Repos: ${user.public_repos}`;
+  gitFollowersUrl.textContent = `Followers: ${user.followers}`;
+  gitFollowingUrl.textContent = `Following: ${user.following}`;
+  gitHtmlUrl.textContent = `Website: ${user.html_url}`;
+  gitCreatedAt.textContent = `Created: ${user.created_at}`;
+  gitUpdatedAt.textContent = `Updated: ${user.updated_at}`;
 
   //put together
 

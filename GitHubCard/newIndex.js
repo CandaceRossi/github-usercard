@@ -2,11 +2,16 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
-const cards = document.querySelector(".cards");
+let cards = document.querySelector(".cards");
 axios
   .get("https://api.github.com/users/CandaceRossi")
-  .then(data => {
-    console.log("this is the response", data);
+  .then(items => {
+    console.log("this is the response", items);
+    let card = items.data;
+    console.log("info", card);
+    const linkThem = gitUserCard(card);
+    console.log("working", linkThem);
+    cards.appendChild(linkThem);
   })
   .catch(error => {
     console.log("Error", error);
@@ -60,17 +65,40 @@ function gitUserCard(user) {
 
   gitCard.classList.add("card");
   gitImg.classList.add("img");
-  gitName.classList.add("card-name");
+  gitInfo.classList.add("card-info");
+  gitName.classList.add("card-username");
   gitUrl.classList.add("card-p");
   gitPublicRepos.classList.add("card-p");
   gitFollowersUrl.classList.add("card-p");
   gitFollowingUrl.classList.add("card-p");
-  gitHtmlUrl.classList.add("p");
-  gitCreatedAt.classList.add("p");
-  gitUpdatedAt.classList.add("p");
+  gitHtmlUrl.classList.add("card-p");
+  gitCreatedAt.classList.add("card-p");
+  gitUpdatedAt.classList.add("card-p");
 
   //set the content
-  // gitImg.src - `${user.}`
+
+  gitImg.src = `${user.avatar_url}`;
+  gitName.textContent = `${user.login}`;
+  gitUrl.textContent = `${user.html_url}`;
+  gitPublicRepos.textContent = `${user.public_repos}`;
+  gitFollowersUrl.textContent = `${user.followers}`;
+  gitFollowingUrl.textContent = `${user.following}`;
+  gitHtmlUrl.textContent = `${user.html_url}`;
+  gitCreatedAt.textContent = `${user.created_at}`;
+  gitUpdatedAt.textContent = `${user.updated_at}`;
+
   //put together
-  //return card
+
+  gitCard.appendChild(gitInfo);
+  gitCard.appendChild(gitImg);
+  gitInfo.appendChild(gitName);
+  gitInfo.appendChild(gitUrl);
+  gitInfo.appendChild(gitPublicRepos);
+  gitInfo.appendChild(gitFollowersUrl);
+  gitInfo.appendChild(gitFollowingUrl);
+  gitInfo.appendChild(gitHtmlUrl);
+  gitInfo.appendChild(gitCreatedAt);
+  gitInfo.appendChild(gitUpdatedAt);
+
+  return gitCard;
 }

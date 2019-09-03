@@ -1,3 +1,43 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import axios from "axios";
+
+import './styles.css';
+
+class App extends React.Component {
+
+  state = {
+    gitCard: [],
+    gitCardText: '',
+  }
+
+
+componentDidMount() {
+  axios 
+  .get('https://api.github.com/users/CandaceRossi')
+  .then(res => res.json())
+  .then(jsonData => this.ListeningStateChangedEvent({gitCard.message}))
+  .catch(err => console.log("Error"))
+}
+
+componentDidUpdate() {
+
+}
+render() {
+  return (
+    <div className= "container">
+      <h1 className Header>GitHub Cards</h1>
+      <div className="cards"></div>
+    </div>
+  )
+}
+}
+
+
+
+
+
+
 /* Step 1: using axios, send a GET request to the following URL 
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
@@ -84,65 +124,65 @@ axios.get('https://api.github.com/users/CandaceRossi')
 
 */
 
-function createGithubCard(userObject) {
+// function createGithubCard(userObject) {
 
-    //create elements
-    const userCard = document.createElement('div')
-    const userImg = document.createElement('img')
-    const cardInfo = document.createElement('div')
-    const govName = document.createElement('h3')
-    const userName = document.createElement('p')
-    const userLocation = document.createElement('p')
-    const userProfile = document.createElement('p')
-    const userGitPage = document.createElement('a')
-    const userFollowers = document.createElement('p')
-    const userFollowing = document.createElement('p')
-    const userBio = document.createElement('p')
+//     //create elements
+//     const userCard = document.createElement('div')
+//     const userImg = document.createElement('img')
+//     const cardInfo = document.createElement('div')
+//     const govName = document.createElement('h3')
+//     const userName = document.createElement('p')
+//     const userLocation = document.createElement('p')
+//     const userProfile = document.createElement('p')
+//     const userGitPage = document.createElement('a')
+//     const userFollowers = document.createElement('p')
+//     const userFollowing = document.createElement('p')
+//     const userBio = document.createElement('p')
 
-    //set styles
-    userCard.classList.add('card')
-    userImg.classList.add('img')
-    cardInfo.classList.add('card-info')
-    govName.classList.add('name')
-    userName.classList.add('username')
-    userLocation.classList.add('card-p')
-    userProfile.classList.add('card-p')
-    userFollowers.classList.add('card-p')
-    userFollowing.classList.add('card-p')
-    userBio.classList.add('card-p')
-
-
-    //set the content
-    userImg.src = `${userObject.avatar_url}`
-    govName.textContent = `${userObject.login}`
-    userName.textContent = `${userObject.name}`
-    userLocation.textContent = `${userObject.location}`
-    userProfile.textContent = `Profile ${userObject.url}`
-    userGitPage.textContent = `Git Page ${userObject.repos_url}`
-    userFollowers.textContent = `followers ${userObject.followers}`
-    userFollowing.textContent = `following ${userObject.following}`
-
-    //put together
-    userCard.appendChild(cardInfo)
-    userCard.appendChild(userImg)
-    cardInfo.appendChild(govName)
-    cardInfo.appendChild(userName)
-    cardInfo.appendChild(userLocation)
-    cardInfo.appendChild(userProfile)
-    cardInfo.appendChild(userFollowers)
-    cardInfo.appendChild(userFollowing)
-    userProfile.appendChild(userGitPage)
+//     //set styles
+//     userCard.classList.add('card')
+//     userImg.classList.add('img')
+//     cardInfo.classList.add('card-info')
+//     govName.classList.add('name')
+//     userName.classList.add('username')
+//     userLocation.classList.add('card-p')
+//     userProfile.classList.add('card-p')
+//     userFollowers.classList.add('card-p')
+//     userFollowing.classList.add('card-p')
+//     userBio.classList.add('card-p')
 
 
-    return userCard
-}
+//     //set the content
+//     userImg.src = `${userObject.avatar_url}`
+//     govName.textContent = `${userObject.login}`
+//     userName.textContent = `${userObject.name}`
+//     userLocation.textContent = `${userObject.location}`
+//     userProfile.textContent = `Profile ${userObject.url}`
+//     userGitPage.textContent = `Git Page ${userObject.repos_url}`
+//     userFollowers.textContent = `followers ${userObject.followers}`
+//     userFollowing.textContent = `following ${userObject.following}`
+
+//     //put together
+//     userCard.appendChild(cardInfo)
+//     userCard.appendChild(userImg)
+//     cardInfo.appendChild(govName)
+//     cardInfo.appendChild(userName)
+//     cardInfo.appendChild(userLocation)
+//     cardInfo.appendChild(userProfile)
+//     cardInfo.appendChild(userFollowers)
+//     cardInfo.appendChild(userFollowing)
+//     userProfile.appendChild(userGitPage)
+
+
+//     return userCard
+// }
 
 
 
-/* List of LS Instructors Github username's: 
-  tetondan
-  dustinmyers
-  justsml
-  luishrd
-  bigknell
-*/
+// /* List of LS Instructors Github username's: 
+//   tetondan
+//   dustinmyers
+//   justsml
+//   luishrd
+//   bigknell
+// */

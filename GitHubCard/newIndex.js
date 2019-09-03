@@ -12,10 +12,6 @@ axios
     const linkThem = gitUserCard(card);
     console.log("working", linkThem);
     cards.appendChild(linkThem);
-    // friendsArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell']
-    // friendsArray.forEach((item => {
-
-    // }))
   })
   .catch(error => {
     console.log("Error", error);
@@ -107,3 +103,16 @@ function gitUserCard(user) {
 
   return gitCard;
 }
+
+const gitUsers = "https://api.github.com/users/";
+friendsArray = ["tetondan", "dustinmyers", "justsml", "luishrd", "bdigknell"];
+userData = {};
+const el = document.querySelector("cards");
+let cardItem = document.createElement("div");
+el.appendChild(cardItem);
+friendsArray.forEach(item => {
+  axios.get(`${gitUsers}${item}`).then(function(response) {
+    userData.push(response);
+    return gitUserCard();
+  });
+});
